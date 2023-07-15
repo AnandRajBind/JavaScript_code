@@ -1,0 +1,71 @@
+<!-- 18. Change Text on Button click.
+
+Create a simple HTML page with a heading and a button. The initial text must be “The most affordable learning
+platform”, use JavaScript to change the heading text to “PW Skills” when the button is clicked. The button must
+toggle the text of a heading between "The most affordable learning platform" and "PW Skills" on each click.*/ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Text on Button click.</title>
+    <style>
+        #heading {
+            color: blue;
+            /* margin-left: 50%; */
+            text-align: center;
+        }
+        #button {
+            color: aliceblue;
+            background-color: black;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            text-align: center;
+            margin-left: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HTML Code  -->
+    <h1 id="heading">"The most affordable learning platform"</h1>
+    <button onclick="ChangeHeadingtext()" id="button">Change Text</button>
+
+
+    <!-- javaScript code  -->
+    <script>
+        var heading = document.getElementById("heading");
+        function ChangeHeadingtext() {
+            if (heading.innerHTML === "The most affordable learning platform") {
+                heading.innerHTML = "PW Skills "
+                heading.style.color = "red";
+            }
+            else {
+                heading.innerHTML = "The most affordable learning platform"
+            }
+        }
+
+        const btn = document.getElementById("button")
+        function RandomColour() {
+            let value = "123456789ABCDEF";
+            let cons = "#";
+            for (i = 0; i < 6; i++) {
+                cons = cons + value[Math.floor(Math.random() * 16)];
+            }
+            return cons;
+        }
+        // console.log(RandomColour());
+        function changeBodyColor(){
+            document.body.style.backgroundColor=RandomColour();
+        }
+        btn.addEventListener("click", changeBodyColor);
+    </script>
+</body>
+
+</html>
