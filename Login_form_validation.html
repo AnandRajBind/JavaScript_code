@@ -1,0 +1,84 @@
+<!-- 19 Validate Password -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body{
+    background-color: #c0b6b6;
+    border: 5px solid rgb(23, 50, 77);
+    /* margin: 25%; */
+    overflow: hidden;
+    padding: 50px ;
+   
+
+}
+        #container{
+           
+    
+   
+}
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="login_form">
+            <label for="email" > Email:</label>
+            <input type="text" id="email" name="email" placeholder="Enter valid Email" required>
+            <br>
+            <label for="password" >Password:</label>
+            <input type="password" id="password" name="password"  placeholder="Enter valid Password" required><br>
+    <input type="submit" value="Submit">    </form>
+        <p id="messageValidation"></p>
+    </div>
+
+    <script>
+        document.getElementById("login_form").addEventListener("submit", function (event) {
+            event.preventDefault();
+        var    inputEmail = document.getElementById("email");
+        var    inputPassword = document.getElementById("password");
+        var    messageValidation = document.getElementById("messageValidation");
+
+    var email=inputEmail.value;
+    var password=inputPassword.value;
+
+    var isValid=true; 
+
+    if(email.indexOf("@") === -1){
+        isValid =false;
+        messageValidation.textContent="Invalid email or Password";
+messageValidation.className="error";
+    }
+    else if(password.length < 8){
+        isValid =false;
+        messageValidation.textContent="Invalid email or Password"
+messageValidation.className="error"
+}
+else{
+    messageValidation.textContent="valid email and  Password"
+messageValidation.className="success"
+}
+
+if(!isValid){
+inputEmail.value="";
+inputPassword.value="";
+}
+})
+    </script>
+</body>
+
+</html>
